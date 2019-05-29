@@ -7,22 +7,24 @@ PGID=${PGID:-0}
 
 # Functions
 setup(){
+  echo "Initialising google-drive-ocamlfuse..."
+  echo "$VERIFICATION_CODE"
   google-drive-ocamlfuse \
-    -label "$LABEL \
+    -label "$LABEL" \
     -f \
     -cc \
     -skiptrash \
     -headless \
     -id "$CLIENT_ID.apps.googleusercontent.com" \
-    -secret $CLIENT_SECRET \
+    -secret "$CLIENT_SECRET" \
     -config /config/gdrive-ocamlfuse
 }
 
 mount() {
-  echo "Mounting at $DRIVE_PATH"
+  echo "Mounting at $DRIVE_PATH..."
   google-drive-ocamlfuse $DRIVE_PATH \
-    -o noatime,uid=$PUID,gid=$PGID,allow_other \
-    -label $LABEL \
+    -o "noatime,uid=$PUID,gid=$PGID,allow_other" \
+    -label "$LABEL" \
     -f \
     -cc \
     -skiptrash \
@@ -48,6 +50,4 @@ else
   fi
 fi
 
-echo "Initialising google-drive-ocamlfuse..."
-echo $VERIFICATION_CODE
 mount
