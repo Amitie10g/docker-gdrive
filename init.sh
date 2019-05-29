@@ -5,8 +5,8 @@ set -ex
 PUID=${PUID:-0}
 PGID=${PGID:-0}
 
-if [ -e "~/.gdfuse/${LABEL}/config" ]; then
-  echo "existing google-drive-ocamlfuse config found"
+if [ -e "/config/gdrive-ocamlfuse" ]; then
+  echo "No Google Drive configuration found."
 else
   if [ -z "${CLIENT_ID}" ]; then
     echo "no CLIENT_ID found -> EXIT"
@@ -18,7 +18,7 @@ else
     echo "no VERIFICATION_CODE found -> EXIT"
     exit 1
   else
-    echo "initilising google-drive-ocamlfuse..."
+    echo "Initialising google-drive-ocamlfuse..."
     echo "${VERIFICATION_CODE}" | \
       google-drive-ocamlfuse \
         -label ${LABEL} \
@@ -27,15 +27,17 @@ else
         -skiptrash \
         -headless \
         -id "${CLIENT_ID}.apps.googleusercontent.com" \
-        -secret "${CLIENT_SECRET}"
+        -secret "${CLIENT_SECRET}" \
+        -config /config/gdrive-ocamlfuse
   fi
 fi
 
-echo "mounting at ${DRIVE_PATH}"
+echo "Mounting at ${DRIVE_PATH}"
 google-drive-ocamlfuse ${DRIVE_PATH} \
   -o noatime,uid=${PUID},gid=${PGID},allow_other \
   -label ${LABEL} \
   -f \
   -cc \
   -skiptrash \
-  -headless
+  -headless \
+  -config /config/gdrive-ocamlfuse
