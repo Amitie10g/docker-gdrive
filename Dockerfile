@@ -1,5 +1,4 @@
-FROM alpine:3.5
-
+FROM alpine:latest
 MAINTAINER Matt Bailey <m@mdb.io>
 
 RUN apk -Uu add opam make build-base gcc abuild binutils bash ncurses-dev &&\
@@ -27,7 +26,7 @@ RUN apk -Uu add opam make build-base gcc abuild binutils bash ncurses-dev &&\
     perl \
     ncurses-dev \
     sqlite-dev && \
-  apk add libressl2.4-libtls fuse libgmpxx sqlite-libs libcurl ncurses-libs
+  apk add libressl2.7-libtls fuse libgmpxx sqlite-libs libcurl ncurses-libs
 
 ENV DRIVE_PATH="/drive"
 ENV LABEL="gdrive"
