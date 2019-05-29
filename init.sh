@@ -17,20 +17,22 @@ setup(){
     -headless \
     -id "$CLIENT_ID.apps.googleusercontent.com" \
     -secret "$CLIENT_SECRET" \
+
 }
 
 mount() {
   echo "Mounting at $DRIVE_PATH..."
-  google-drive-ocamlfuse $DRIVE_PATH \
+  google-drive-ocamlfuse "$DRIVE_PATH" \
     -o "noatime,uid=$PUID,gid=$PGID,allow_other" \
     -label "$LABEL" \
     -f \
     -cc \
     -skiptrash \
     -headless \
+
 }
 
-if [ -e "~/.gdfuse/${LABEL}/config" ]; then
+if [ -e "$HOME/.gdfuse/${LABEL}/config" ]; then
   echo "Notice: No Google Drive configuration found."
 else
   if [ -z "$CLIENT_ID" ]; then
