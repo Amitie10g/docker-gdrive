@@ -1,5 +1,5 @@
 FROM alpine:3.5
-MAINTAINER Matt Bailey <m@mdb.io>
+MAINTAINER Davod (Amitie10g) <davidkingnt@gmail.com>
 
 RUN apk -Uu add opam make build-base gcc abuild binutils bash ncurses-dev &&\
   OPAMYES=true opam init && \
