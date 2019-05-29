@@ -31,7 +31,7 @@ mount() {
 }
 
 if [ -e "~/.gdfuse/${LABEL}/config" ]; then
-  echo "No Google Drive configuration found."
+  echo "Notice: No Google Drive configuration found."
 else
   if [ -z "$CLIENT_ID" ]; then
     echo "Fatal: no CLIENT_ID found -> EXIT"
