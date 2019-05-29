@@ -17,7 +17,6 @@ setup(){
     -headless \
     -id "$CLIENT_ID.apps.googleusercontent.com" \
     -secret "$CLIENT_SECRET" \
-    -config /config/gdrive-ocamlfuse
 }
 
 mount() {
@@ -29,10 +28,9 @@ mount() {
     -cc \
     -skiptrash \
     -headless \
-    -config /config/gdrive-ocamlfuse
 }
 
-if [ -e "/config/gdrive-ocamlfuse" ]; then
+if [ -e "~/.gdfuse/${LABEL}/config" ]; then
   echo "No Google Drive configuration found."
 else
   if [ -z "$CLIENT_ID" ]; then
