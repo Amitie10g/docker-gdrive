@@ -1,8 +1,8 @@
-FROM alpine:latest
+FROM alpine:3.5
 MAINTAINER Matt Bailey <m@mdb.io>
 
 RUN apk -Uu add opam make build-base gcc abuild binutils bash ncurses-dev &&\
-  OPAMYES=true opam init --disable-sandboxing && \
+  OPAMYES=true opam init && \
   OPAMYES=true opam depext google-drive-ocamlfuse && \
   OPAMYES=true opam install google-drive-ocamlfuse && \
   mv /root/.opam/system/bin/google-drive-ocamlfuse /bin/google-drive-ocamlfuse && \
