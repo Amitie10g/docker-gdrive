@@ -35,5 +35,6 @@ ENV LABEL="gdrive"
 COPY init.sh /
 RUN chmod +x /init.sh
 RUN mkdir -p $DRIVE_PATH
+RUN mkdir -p /config
 
 CMD ["/init.sh"]
