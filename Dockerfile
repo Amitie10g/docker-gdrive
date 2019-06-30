@@ -1,4 +1,4 @@
-FROM alpine:3.5
+FROM alpine:latest
 MAINTAINER Davod (Amitie10g) <davidkingnt@gmail.com>
 
 RUN apk -Uu add opam make build-base gcc abuild binutils bash ncurses-dev &&\
