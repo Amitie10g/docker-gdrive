@@ -6,7 +6,7 @@ RUN OPAMYES=true opam init && \
   OPAMYES=true opam install google-drive-ocamlfuse
 
 FROM alpine:latest
-RUN apk add --no-cache libressl2.4-libtls fuse libgmpxx sqlite-libs libcurl ncurses-libs
+RUN apk add --no-cache libressl2.7-libtls fuse libgmpxx sqlite-libs libcurl ncurses-libs
 
 ENV DRIVE_PATH="/drive"
 ENV LABEL="gdrive"
