@@ -1,7 +1,7 @@
 FROM alpine:3.5
 MAINTAINER Davod (Amitie10g) <davidkingnt@gmail.com>
 
-RUN apk -Uu add opam make build-base gcc abuild binutils bash ncurses-dev &&\
+RUN apk -Uu add opam make build-base gcc abuild binutils bash ncurses-dev git &&\
   OPAMYES=true opam init && \
   OPAMYES=true opam depext google-drive-ocamlfuse && \
   OPAMYES=true opam install google-drive-ocamlfuse && \
