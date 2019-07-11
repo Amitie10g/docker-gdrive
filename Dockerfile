@@ -14,7 +14,7 @@ ENV DRIVE_PATH="/drive"
 ENV LABEL="gdrive"
 
 COPY init.sh /
-COPY --from=builder /root/.opam/system/bin/google-drive-ocamlfuse
+COPY --from=builder /root/.opam/system/bin/google-drive-ocamlfuse /bin/
 
 RUN chmod +x /init.sh
 RUN mkdir -p $DRIVE_PATH
