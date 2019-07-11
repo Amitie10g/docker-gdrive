@@ -8,7 +8,7 @@ RUN apk -Uu add opam make build-base gcc abuild binutils bash ncurses-dev git m4
   
 FROM alpine:3.10
 
-RUN apk add libressl2.4-libtls fuse libgmpxx sqlite-libs libcurl ncurses-libs
+RUN apk add libressl2.7-libtls fuse libgmpxx sqlite-libs libcurl ncurses-libs
 
 ENV DRIVE_PATH="/drive"
 ENV LABEL="gdrive"
